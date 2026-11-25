@@ -1,0 +1,23 @@
+package seljava;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+public class Seljava{
+    public static void main(String[] args){
+        WebDriver driver=new ChromeDriver();
+            driver.get("http://localhost:8084");
+            driver.findElement(By.id("name")).sendKeys("Thanu");
+            driver.findElement(By.id("email")).sendKeys("T@gmail.com");
+            driver.findElement(By.id("phone")).sendKeys("1234567890");
+            driver.findElement(By.id("gender")).sendKeys("Female");
+            driver.findElement(By.id("event")).sendKeys("Nirvana");
+            driver.findElement(By.cssSelector("button")).click();
+            String msg=driver.findElement(By.id("message")).getText();
+            System.out.println(msg);
+            if(msg.equals("Registration Success")){
+                System.out.println("Test passed");
+            }else{
+                System.out.println("Test failed");
+            }
+        }
+    }
